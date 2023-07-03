@@ -3,7 +3,7 @@ import { useEffect, useState, createContext  } from 'react';
 import Demo from "./components/Demo";
 import Blog from "./components/Blog/Blog";
 import Read from "./components/readBlog/Read";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import { fetchAllData } from "../src/Services/blog.service";
 
 export const BlogContext = createContext();
@@ -28,10 +28,10 @@ function App() {
   return (
     <>
       {/* <Demo /> */}
-      <BrowserRouter>
+      <BrowserRouter basename="/blogWeb">
         <BlogContext.Provider value={{ allBLog, setSingleBlog, singleBlog, setAddFav, addFav }} >
           <Routes>
-            <Route path="/" element={<Demo />} />
+            <Route path="/blogWeb" element={<Demo />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/full-blog/:id" element={<Read />} />
           </Routes>
