@@ -28,10 +28,10 @@ function App() {
   return (
     <>
       {/* <Demo /> */}
-      <BrowserRouter basename="/blogWeb">
+      <BrowserRouter>
         <BlogContext.Provider value={{ allBLog, setSingleBlog, singleBlog, setAddFav, addFav }} >
           <Routes>
-            <Route path="/blogWeb" element={<Demo />} />
+            <Route path="/" element={<Demo />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/full-blog/:id" element={<Read />} />
           </Routes>
